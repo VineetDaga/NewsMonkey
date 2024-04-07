@@ -58,22 +58,10 @@ export class News extends Component {
     const temp = await data.json();
     this.setState({
       article: this.state.article.concat(temp.articles),
-      // article : [ ...article, ...[temp.articles]],
       totalresult: temp.totalResults,
       loading: false,
     });
   };
-  // onPrev = async () => {
-  //   this.setState({
-  //     page: this.state.page + 1,
-  //   })
-  //   this.update();
-  // };
-
-  // onNext = async () => {
-  //   this.setState({ page : this.state.page + 1});
-  //   this.update();
-  // };
 
   render() {
     return (
@@ -111,35 +99,9 @@ export class News extends Component {
             })}
           </div>
         </InfiniteScroll>
-        {/* <div className="flex justify-between m-6">
-          <button
-            className={`mr-2 px-4 py-2 hover:scale-105 duration-150 bg-blue-500 text-white rounded hover:bg-blue-600 ${
-              this.state.page <= 1 ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-            disabled={this.state.page <= 1}
-            onClick={this.onPrev}
-          >
-            &larr; Previous
-          </button>
-          <button
-            className={`mr-2 px-4 py-2 hover:scale-105 duration-150 bg-blue-500 text-white rounded hover:bg-blue-600 ${
-              this.state.page + 1 >
-              Math.ceil(this.state.totalresult / this.props.pageSize)
-                ? "opacity-50 cursor-not-allowed"
-                : ""
-            }`}
-            onClick={this.onNext}
-            disabled={
-              this.state.page + 1 > Math.ceil(this.state.totalresult / this.props.pageSize)
-            }
-          >
-            Next &rarr;
-          </button> */}
-        {/* </div> */}
       </div>
     );
   }
 }
 
 export default News;
-
